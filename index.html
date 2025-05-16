@@ -1,143 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PodPlug22</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PodPlug22 - Home</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #f2f2f2;
-      color: #222;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
     }
     header {
-      background-color: #ffffff;
-      padding: 20px 0;
+      background-color: #222;
+      color: white;
+      padding: 20px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      font-size: 2.5rem;
-      color: #222;
-    }
-    header p {
-      font-size: 1rem;
-      color: #666;
     }
     nav {
-      background-color: #ffffff;
       display: flex;
       justify-content: center;
-      gap: 30px;
-      padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background-color: #444;
     }
-    .nav-item {
+    .dropdown {
       position: relative;
+      display: inline-block;
     }
-    nav a {
-      color: #222;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 10px 15px;
-      border-radius: 8px;
-    }
-    nav a:hover {
-      background-color: #eaeaea;
-    }
-    .subnav {
+    .dropdown-content {
       display: none;
       position: absolute;
-      top: 45px;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      padding: 10px;
-      flex-direction: column;
+      background-color: #f9f9f9;
       min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
     }
-    .nav-item:hover .subnav {
-      display: flex;
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
     }
-    .hero {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(to right, #ffffff, #f2f2f2);
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
-    .hero h1 {
-      font-size: 3rem;
-      color: #111;
+    nav a, .dropdown-content a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      display: block;
     }
-    .hero p {
-      font-size: 1.2rem;
-      color: #555;
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    main {
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .price {
+      color: green;
+      font-size: 1.5em;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: red;
+      margin-right: 10px;
+    }
+    .discount {
+      background-color: red;
+      color: white;
+      padding: 5px;
+      font-weight: bold;
+      display: inline-block;
       margin-top: 10px;
     }
-    .content {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .content h2 {
-      margin-bottom: 15px;
-    }
-    .content p {
-      line-height: 1.6;
-      color: #444;
+    .product img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>PodPlug22</h1>
-    <p>Your go-to plug for AirPods, LV Beanies & more.</p>
+    <p>Your plug for premium tech & fashion at better prices.</p>
   </header>
-
   <nav>
-    <div class="nav-item">
-      <a href="#">Home</a>
-    </div>
-    <div class="nav-item">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
       <a href="#">AirPods</a>
-      <div class="subnav">
-        <a href="#">Buy AirPods</a>
-        <a href="#">AirPods Info</a>
+      <div class="dropdown-content">
+        <a href="buy-airpods.html">Buy AirPods</a>
+        <a href="#">Info</a>
       </div>
     </div>
-    <div class="nav-item">
+    <div class="dropdown">
       <a href="#">LV Beanies</a>
-      <div class="subnav">
-        <a href="#">Buy Beanies</a>
-        <a href="#">Beanie Info</a>
+      <div class="dropdown-content">
+        <a href="buy-beanies.html">Buy Beanies</a>
+        <a href="#">Info</a>
       </div>
-    </div>
-    <div class="nav-item">
-      <a href="#">More Coming Soon</a>
     </div>
   </nav>
-
-  <section class="hero">
-    <h1>Welcome to PodPlug22</h1>
-    <p>Premium products. Fast shipping. Real stock updates.</p>
-  </section>
-
-  <div class="content">
-    <h2>How It Works</h2>
-    <p>We sell trusted tech and designer items like AirPods and LV beanies at unbeatable prices. You place your order, and we ship fast from our UK-based stock.</p>
-    <p>Each product page will show how many items are in stock. When a purchase is made, the stock count goes down. As the website owner, you’ll be able to manually update stock numbers through your own admin editor page (coming soon).</p>
-  </div>
-
+  <main>
+    <h2>Welcome to PodPlug22</h2>
+    <p>We sell AirPods and designer fashion at unbeatable prices. All items are in stock and ready to ship. Shipping is fast and tracked. As owner, I update the stock manually as items come in and out.</p>
+  </main>
 </body>
 </html>
