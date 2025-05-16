@@ -1,159 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Buy AirPods - PodPlug22</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  header, nav {
-    background-color: #222;
-    color: white;
-  }
-  nav {
-    display: flex;
-    justify-content: center;
-  }
-  nav a, .dropdown-content a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  header {
-    padding: 20px;
-    text-align: center;
-  }
-  main {
-    max-width: 700px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  h1 {
-    margin-bottom: 10px;
-  }
-  .product-option {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 15px 0;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: #fafafa;
-  }
-  .product-option img {
-    width: 120px;
-    height: auto;
-    border-radius: 8px;
-    background-color: #ccc;
-  }
-  .price {
-    font-size: 1.3em;
-    color: green;
-    font-weight: bold;
-  }
-  .old-price {
-    text-decoration: line-through;
-    color: red;
-    margin-right: 10px;
-  }
-  .discount {
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-  }
-  button {
-    background-color: #222;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-  }
-  button:hover {
-    background-color: #555;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PodPlug22 - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav {
+      background: #222;
+      padding: 0.5rem 1rem;
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 150px;
+      top: 2.2rem;
+      left: 0;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #fff;
+      padding: 0.5rem 1rem;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #111;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      background: #ffdb4d;
+      color: #111;
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>PodPlug22 - Buy AirPods</h1>
+
+  <header>
+    <h2>PodPlug22</h2>
+    <span class="highlight">Big Discounts On AirPods & Beanies!</span>
+  </header>
+
   <nav>
     <a href="index.html">Home</a>
+
     <div class="dropdown">
       <a href="#">AirPods</a>
       <div class="dropdown-content">
-        <a href="buy-airpods.html">Buy AirPods</a>
-        <a href="#">Info</a>
+        <a href="airpods.html">Buy AirPods</a>
+        <a href="airpods-info.html">AirPods Info</a>
       </div>
     </div>
+
     <div class="dropdown">
       <a href="#">LV Beanies</a>
       <div class="dropdown-content">
-        <a href="buy-beanies.html">Buy Beanies</a>
-        <a href="#">Info</a>
+        <a href="beanies.html">Buy Beanies</a>
+        <a href="beanies-info.html">Beanies Info</a>
       </div>
     </div>
+
+    <a href="#">More Coming Soon</a>
   </nav>
-</header>
-<main>
-  <h2>Select your AirPods package</h2>
 
-  <div class="product-option">
-    <img src="https://via.placeholder.com/120x100?text=AirPods+1+Pair" alt="AirPods 1 Pair" />
-    <div>
-      <div><span class="old-price">£40</span> <span class="price">£20</span></div>
-      <div class="discount">50% OFF</div>
-      <button>Add 1 Pair to Basket</button>
-    </div>
-  </div>
+  <main>
+    <h1>Welcome to PodPlug22</h1>
+    <p>
+      At <strong>PodPlug22</strong>, we bring you premium quality tech and fashion at unbeatable prices.
+      We specialize in discounted <strong>Apple AirPods</strong> and <strong>LV Beanies</strong>.
+    </p>
 
-  <div class="product-option">
-    <img src="https://via.placeholder.com/120x100?text=AirPods+5+Pairs" alt="AirPods 5 Pairs" />
-    <div>
-      <div><span class="price">£90</span></div>
-      <div class="discount">Save £10</div>
-      <button>Add 5 Pairs to Basket</button>
-    </div>
-  </div>
+    <p>
+      <strong>How it works:</strong><br />
+      - Choose your product (AirPods or Beanies)<br />
+      - Select the quantity or bundle you want<br />
+      - Add to your basket and pay securely<br />
+      - We handle fast and safe shipping directly to your door!
+    </p>
 
-  <div class="product-option">
-    <img src="https://via.placeholder.com/120x100?text=AirPods+10+Pairs" alt="AirPods 10 Pairs" />
-    <div>
-      <div><span class="price">£190</span></div>
-      <div class="discount">Best Deal</div>
-      <button>Add 10 Pairs to Basket</button>
-    </div>
-  </div>
-</main>
+    <p>
+      You’ll see how much stock is available on each product page, and I’ll manually update stock as new products arrive.
+    </p>
+
+    <p>
+      Only I, the site owner, can update inventory levels.
+    </p>
+  </main>
+
+  <footer>
+    &copy; 2025 PodPlug22. All rights reserved.
+  </footer>
+
 </body>
 </html>
