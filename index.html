@@ -8,403 +8,191 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f8f8f8;
-      color: #333;
+      padding: 0;
     }
     header {
       background-color: #000;
       color: #fff;
-      padding: 20px;
+      padding: 1rem;
       text-align: center;
     }
-    /* Navigation bar below header */
     nav {
-      background-color: #222;
+      background-color: #111;
       display: flex;
       justify-content: center;
-      gap: 30px;
-      padding: 10px 0;
-      font-weight: bold;
+      gap: 2rem;
+      padding: 1rem;
+    }
+    nav .dropdown {
+      position: relative;
     }
     nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
-      cursor: pointer;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
     }
-    nav a:hover,
-    nav a.active {
-      background-color: #555;
-    }
-    /* Basket icon and counter */
-    .basket {
-      margin-left: auto;
-      margin-right: 20px;
-      position: relative;
-      cursor: pointer;
-      color: white;
-      font-size: 24px;
-      user-select: none;
-    }
-    .basket-counter {
+    .dropdown-content {
+      display: none;
       position: absolute;
-      top: -6px;
-      right: -10px;
-      background: red;
-      color: white;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 50%;
+      background-color: #222;
+      padding: 1rem;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
     }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+    .dropdown-content a {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .home-section, .info-section, .buy-section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .logo {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .info-block {
+      margin-top: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .info-block h2 {
+      margin-bottom: 0.5rem;
+    }
+    .info-block p {
+      line-height: 1.6;
     }
     .product {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
+      margin: 1rem auto;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      max-width: 400px;
     }
-    .product img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      object-fit: contain;
-      margin-bottom: 10px;
-      flex-grow: 1;
-    }
-    .product h3 {
-      margin: 10px 0 5px;
-    }
-    .product p {
-      color: #777;
-      margin-bottom: 10px;
-    }
-    .quantity-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
+    .admin-panel {
+      margin-top: 2rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
     input[type="number"] {
       width: 50px;
-      padding: 5px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-    .btn {
-      padding: 10px 20px;
-      background: #222;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-weight: bold;
-    }
-    .btn:hover {
-      background: #555;
-    }
-    /* Cart modal styles */
-    #cartModal {
-      display: none; /* Hidden by default */
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
-    }
-    #cartContent {
-      background-color: #fefefe;
-      margin: 50px auto;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 600px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    #closeCart {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    #closeCart:hover {
-      color: black;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-    th, td {
-      border-bottom: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #222;
-      color: white;
-    }
-    #checkoutBtn {
-      margin-top: 20px;
-      background-color: #0070ba;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    #checkoutBtn:hover {
-      background-color: #005ea6;
-    }
-    /* Responsive fixes */
-    @media(max-width: 600px) {
-      nav {
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-      .products {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>PodPlug22</h1>
-    <p>Your plug for premium gear – AirPods, LV, and more!</p>
   </header>
 
   <nav>
-    <a href="#" class="nav-link active" data-category="all">All</a>
-    <a href="#" class="nav-link" data-category="airpods">AirPods</a>
-    <a href="#" class="nav-link" data-category="lv-beanies">LV Beanies</a>
-    <a href="#" class="nav-link" data-category="future1">Coming Soon 1</a>
-    <a href="#" class="nav-link" data-category="future2">Coming Soon 2</a>
-    <div class="basket" id="basketBtn" title="View Cart">
-      🛒 <span class="basket-counter" id="basketCount">0</span>
+    <a href="#home">Home</a>
+    <div class="dropdown">
+      <a href="#airpods">AirPods</a>
+      <div class="dropdown-content">
+        <a href="#buy-airpods">Buy</a>
+        <a href="#info-airpods">Info</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#beanies">LV Beanies</a>
+      <div class="dropdown-content">
+        <a href="#buy-beanies">Buy</a>
+        <a href="#info-beanies">Info</a>
+      </div>
     </div>
   </nav>
 
-  <section class="products" id="productsContainer">
-    <!-- Products will be inserted here by JS -->
+  <section id="home" class="home-section">
+    <div class="logo">PodPlug22</div>
+    <div class="info-block">
+      <h2>Welcome to PodPlug22</h2>
+      <p>We’re your plug for premium gear like AirPods, LV Beanies, and more. All items are checked, packed, and shipped fast to your door.</p>
+      <h2>What We Sell</h2>
+      <p>Our store features genuine and affordable products including Apple AirPods, luxury fashion beanies, and exclusive upcoming drops.</p>
+      <h2>Shipping & Delivery</h2>
+      <p>We ship UK-wide within 2–4 business days. Tracking is provided. We ensure fast and secure delivery on all orders.</p>
+    </div>
   </section>
 
-  <!-- Cart Modal -->
-  <div id="cartModal">
-    <div id="cartContent">
-      <span id="closeCart">&times;</span>
-      <h2>Your Cart</h2>
-      <table id="cartTable">
-        <thead>
-          <tr><th>Product</th><th>Qty</th><th>Price</th><th>Total</th><th>Remove</th></tr>
-        </thead>
-        <tbody>
-          <!-- Cart items go here -->
-        </tbody>
-      </table>
-      <h3 id="cartTotal">Total: $0.00</h3>
-      <button id="checkoutBtn">Checkout with PayPal</button>
+  <section id="info-airpods" class="info-section">
+    <h2>About AirPods</h2>
+    <p>We offer brand new and quality-checked AirPods. Each unit is tested before shipping and comes with a 30-day replacement guarantee.</p>
+  </section>
+
+  <section id="buy-airpods" class="buy-section">
+    <h2>Buy AirPods</h2>
+    <div class="product">
+      <h3>Apple AirPods</h3>
+      <p>Price: £120</p>
+      <p>In Stock: <span id="stock-airpods">46</span></p>
+      <label>Qty: <input type="number" id="qty-airpods" min="1" value="1"></label>
+      <button onclick="buyProduct('airpods')">Add to Cart</button>
     </div>
-  </div>
+  </section>
 
-<script>
-  // Products data
-  const products = [
-    {
-      id: 'airpods-pro',
-      name: 'AirPods Pro',
-      price: 149.99,
-      category: 'airpods',
-      img: 'https://via.placeholder.com/300x200?text=AirPods+Pro'
-    },
-    {
-      id: 'lv-beanie',
-      name: 'LV Beanie',
-      price: 89.99,
-      category: 'lv-beanies',
-      img: 'https://via.placeholder.com/300x200?text=LV+Beanie'
-    },
-    // You can add more products here!
-  ];
+  <section id="info-beanies" class="info-section">
+    <h2>About LV Beanies</h2>
+    <p>High-quality designer beanies in multiple colours. We ensure authenticity and package every order with care.</p>
+  </section>
 
-  const productsContainer = document.getElementById('productsContainer');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const basketBtn = document.getElementById('basketBtn');
-  const basketCount = document.getElementById('basketCount');
-  const cartModal = document.getElementById('cartModal');
-  const closeCartBtn = document.getElementById('closeCart');
-  const cartTableBody = document.querySelector('#cartTable tbody');
-  const cartTotalDisplay = document.getElementById('cartTotal');
-  const checkoutBtn = document.getElementById('checkoutBtn');
+  <section id="buy-beanies" class="buy-section">
+    <h2>Buy LV Beanies</h2>
+    <div class="product">
+      <h3>LV Beanie</h3>
+      <p>Price: £90</p>
+      <p>In Stock: <span id="stock-beanies">25</span></p>
+      <label>Qty: <input type="number" id="qty-beanies" min="1" value="1"></label>
+      <button onclick="buyProduct('beanies')">Add to Cart</button>
+    </div>
+  </section>
 
-  let cart = {};
+  <section class="admin-panel">
+    <h2>Admin Stock Editor</h2>
+    <label>Password: <input type="password" id="admin-pass"></label>
+    <div id="stock-editor" style="display:none;">
+      <p>Set AirPods Stock: <input type="number" id="edit-airpods" value="46"> <button onclick="updateStock('airpods')">Update</button></p>
+      <p>Set Beanies Stock: <input type="number" id="edit-beanies" value="25"> <button onclick="updateStock('beanies')">Update</button></p>
+    </div>
+  </section>
 
-  // Render products filtered by category
-  function renderProducts(category = 'all') {
-    productsContainer.innerHTML = '';
-    const filtered = category === 'all' ? products : products.filter(p => p.category === category);
-    if(filtered.length === 0) {
-      productsContainer.innerHTML = '<p style="text-align:center; color:#777;">No products in this category yet.</p>';
-      return;
+  <script>
+    let stock = {
+      airpods: 46,
+      beanies: 25
+    };
+
+    function buyProduct(product) {
+      const qty = parseInt(document.getElementById('qty-' + product).value);
+      if (!qty || qty <= 0) return alert("Enter a valid quantity.");
+      if (stock[product] < qty) return alert("Not enough stock.");
+      stock[product] -= qty;
+      document.getElementById('stock-' + product).textContent = stock[product];
+      alert(`Added ${qty} ${product} to your cart.`);
     }
-    filtered.forEach(product => {
-      const productDiv = document.createElement('div');
-      productDiv.className = 'product';
-      productDiv.innerHTML = `
-        <img src="${product.img}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        <p>$${product.price.toFixed(2)}</p>
-        <div class="quantity-container">
-          <label for="qty-${product.id}">Qty:</label>
-          <input type="number" id="qty-${product.id}" min="1" value="1">
-        </div>
-        <button class="btn" data-id="${product.id}">Add to Cart</button>
-      `;
-      productsContainer.appendChild(productDiv);
-    });
-  }
 
-  // Update cart counter
-  function updateBasketCount() {
-    const count = Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
-    basketCount.textContent = count;
-  }
-
-  // Add product to cart
-  productsContainer.addEventListener('click', e => {
-    if(e.target.tagName === 'BUTTON' && e.target.dataset.id) {
-      const id = e.target.dataset.id;
-      const qtyInput = document.getElementById(`qty-${id}`);
-      const qty = parseInt(qtyInput.value);
-      if(qty < 1 || isNaN(qty)) {
-        alert('Please enter a valid quantity.');
-        return;
-      }
-      if(cart[id]) {
-        cart[id].qty += qty;
+    // Admin password protection
+    const adminInput = document.getElementById('admin-pass');
+    adminInput.addEventListener('change', () => {
+      if (adminInput.value === 'podplug22admin') {
+        document.getElementById('stock-editor').style.display = 'block';
       } else {
-        const product = products.find(p => p.id === id);
-        cart[id] = { ...product, qty: qty };
+        alert('Incorrect password');
       }
-      updateBasketCount();
-      alert(`${qty} x ${cart[id].name} added to cart.`);
-      qtyInput.value = 1;
-    }
-  });
-
-  // Show cart modal
-  basketBtn.addEventListener('click', () => {
-    renderCart();
-    cartModal.style.display = 'block';
-  });
-
-  // Close cart modal
-  closeCartBtn.addEventListener('click', () => {
-    cartModal.style.display = 'none';
-  });
-
-  // Close modal on outside click
-  window.addEventListener('click', (e) => {
-    if(e.target === cartModal) {
-      cartModal.style.display = 'none';
-    }
-  });
-
-  // Render cart items
-  function renderCart() {
-    cartTableBody.innerHTML = '';
-    let total = 0;
-    if(Object.keys(cart).length === 0) {
-      cartTableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Your cart is empty.</td></tr>';
-      cartTotalDisplay.textContent = 'Total: $0.00';
-      checkoutBtn.style.display = 'none';
-      return;
-    }
-    checkoutBtn.style.display = 'inline-block';
-
-    for(const id in cart) {
-      const item = cart[id];
-      const itemTotal = item.price * item.qty;
-      total += itemTotal;
-
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${item.name}</td>
-        <td>${item.qty}</td>
-        <td>$${item.price.toFixed(2)}</td>
-        <td>$${itemTotal.toFixed(2)}</td>
-        <td><button data-id="${id}" class="remove-btn">Remove</button></td>
-      `;
-      cartTableBody.appendChild(tr);
-    }
-    cartTotalDisplay.textContent = `Total: $${total.toFixed(2)}`;
-  }
-
-  // Remove item from cart
-  cartTableBody.addEventListener('click', e => {
-    if(e.target.classList.contains('remove-btn')) {
-      const id = e.target.dataset.id;
-      delete cart[id];
-      updateBasketCount();
-      renderCart();
-    }
-  });
-
-  // Checkout button redirects to PayPal (simple implementation)
-  checkoutBtn.addEventListener('click', () => {
-    // Create PayPal checkout URL
-    // Note: This is a simplified "Buy Now" link that won't pass quantities or multiple items properly.
-    // For a full store, you'd need a backend or use PayPal's APIs or a service like Stripe.
-
-    if(Object.keys(cart).length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-
-    // For demo: redirect to PayPal homepage or you can create a PayPal.me link
-    alert('This demo does not process payments yet.\nYou can integrate PayPal or Stripe later.');
-    cartModal.style.display = 'none';
-  });
-
-  // Navigation link click - filter products
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      navLinks.forEach(l => l.classList.remove('active'));
-      e.target.classList.add('active');
-      const cat = e.target.dataset.category;
-      renderProducts(cat);
     });
-  });
 
-  // Initial render: show all products
-  renderProducts();
-
-  // Initialize basket count
-  updateBasketCount();
-
-</script>
+    function updateStock(product) {
+      const newStock = parseInt(document.getElementById('edit-' + product).value);
+      if (!isNaN(newStock)) {
+        stock[product] = newStock;
+        document.getElementById('stock-' + product).textContent = stock[product];
+        alert(product + ' stock updated to ' + newStock);
+      }
+    }
+  </script>
 
 </body>
 </html>
