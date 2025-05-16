@@ -2,197 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PodPlug22</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f2f2f2;
+      color: #222;
+    }
     header {
-      background-color: #000;
-      color: #fff;
-      padding: 1rem;
+      background-color: #ffffff;
+      padding: 20px 0;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #222;
+    }
+    header p {
+      font-size: 1rem;
+      color: #666;
     }
     nav {
-      background-color: #111;
+      background-color: #ffffff;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
+      gap: 30px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    nav .dropdown {
+    .nav-item {
       position: relative;
     }
     nav a {
-      color: white;
+      color: #222;
       text-decoration: none;
+      font-weight: 500;
+      padding: 10px 15px;
+      border-radius: 8px;
     }
-    .dropdown-content {
+    nav a:hover {
+      background-color: #eaeaea;
+    }
+    .subnav {
       display: none;
       position: absolute;
-      background-color: #222;
-      padding: 1rem;
-      top: 100%;
-      left: 0;
-      z-index: 1000;
+      top: 45px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 10px;
+      flex-direction: column;
+      min-width: 160px;
     }
-    .dropdown-content a {
-      display: block;
-      margin-bottom: 0.5rem;
+    .nav-item:hover .subnav {
+      display: flex;
     }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .home-section, .info-section, .buy-section {
-      padding: 2rem;
+    .hero {
+      padding: 60px 20px;
       text-align: center;
+      background: linear-gradient(to right, #ffffff, #f2f2f2);
     }
-    .logo {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    .hero h1 {
+      font-size: 3rem;
+      color: #111;
     }
-    .info-block {
-      margin-top: 2rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-top: 10px;
     }
-    .info-block h2 {
-      margin-bottom: 0.5rem;
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .info-block p {
+    .content h2 {
+      margin-bottom: 15px;
+    }
+    .content p {
       line-height: 1.6;
-    }
-    .product {
-      margin: 1rem auto;
-      border: 1px solid #ccc;
-      padding: 1rem;
-      max-width: 400px;
-    }
-    .admin-panel {
-      margin-top: 2rem;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    input[type="number"] {
-      width: 50px;
+      color: #444;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>PodPlug22</h1>
+    <p>Your go-to plug for AirPods, LV Beanies & more.</p>
   </header>
 
   <nav>
-    <a href="#home">Home</a>
-    <div class="dropdown">
-      <a href="#airpods">AirPods</a>
-      <div class="dropdown-content">
-        <a href="#buy-airpods">Buy</a>
-        <a href="#info-airpods">Info</a>
+    <div class="nav-item">
+      <a href="#">Home</a>
+    </div>
+    <div class="nav-item">
+      <a href="#">AirPods</a>
+      <div class="subnav">
+        <a href="#">Buy AirPods</a>
+        <a href="#">AirPods Info</a>
       </div>
     </div>
-    <div class="dropdown">
-      <a href="#beanies">LV Beanies</a>
-      <div class="dropdown-content">
-        <a href="#buy-beanies">Buy</a>
-        <a href="#info-beanies">Info</a>
+    <div class="nav-item">
+      <a href="#">LV Beanies</a>
+      <div class="subnav">
+        <a href="#">Buy Beanies</a>
+        <a href="#">Beanie Info</a>
       </div>
+    </div>
+    <div class="nav-item">
+      <a href="#">More Coming Soon</a>
     </div>
   </nav>
 
-  <section id="home" class="home-section">
-    <div class="logo">PodPlug22</div>
-    <div class="info-block">
-      <h2>Welcome to PodPlug22</h2>
-      <p>We’re your plug for premium gear like AirPods, LV Beanies, and more. All items are checked, packed, and shipped fast to your door.</p>
-      <h2>What We Sell</h2>
-      <p>Our store features genuine and affordable products including Apple AirPods, luxury fashion beanies, and exclusive upcoming drops.</p>
-      <h2>Shipping & Delivery</h2>
-      <p>We ship UK-wide within 2–4 business days. Tracking is provided. We ensure fast and secure delivery on all orders.</p>
-    </div>
+  <section class="hero">
+    <h1>Welcome to PodPlug22</h1>
+    <p>Premium products. Fast shipping. Real stock updates.</p>
   </section>
 
-  <section id="info-airpods" class="info-section">
-    <h2>About AirPods</h2>
-    <p>We offer brand new and quality-checked AirPods. Each unit is tested before shipping and comes with a 30-day replacement guarantee.</p>
-  </section>
-
-  <section id="buy-airpods" class="buy-section">
-    <h2>Buy AirPods</h2>
-    <div class="product">
-      <h3>Apple AirPods</h3>
-      <p>Price: £120</p>
-      <p>In Stock: <span id="stock-airpods">46</span></p>
-      <label>Qty: <input type="number" id="qty-airpods" min="1" value="1"></label>
-      <button onclick="buyProduct('airpods')">Add to Cart</button>
-    </div>
-  </section>
-
-  <section id="info-beanies" class="info-section">
-    <h2>About LV Beanies</h2>
-    <p>High-quality designer beanies in multiple colours. We ensure authenticity and package every order with care.</p>
-  </section>
-
-  <section id="buy-beanies" class="buy-section">
-    <h2>Buy LV Beanies</h2>
-    <div class="product">
-      <h3>LV Beanie</h3>
-      <p>Price: £90</p>
-      <p>In Stock: <span id="stock-beanies">25</span></p>
-      <label>Qty: <input type="number" id="qty-beanies" min="1" value="1"></label>
-      <button onclick="buyProduct('beanies')">Add to Cart</button>
-    </div>
-  </section>
-
-  <section class="admin-panel">
-    <h2>Admin Stock Editor</h2>
-    <label>Password: <input type="password" id="admin-pass"></label>
-    <div id="stock-editor" style="display:none;">
-      <p>Set AirPods Stock: <input type="number" id="edit-airpods" value="46"> <button onclick="updateStock('airpods')">Update</button></p>
-      <p>Set Beanies Stock: <input type="number" id="edit-beanies" value="25"> <button onclick="updateStock('beanies')">Update</button></p>
-    </div>
-  </section>
-
-  <script>
-    let stock = {
-      airpods: 46,
-      beanies: 25
-    };
-
-    function buyProduct(product) {
-      const qty = parseInt(document.getElementById('qty-' + product).value);
-      if (!qty || qty <= 0) return alert("Enter a valid quantity.");
-      if (stock[product] < qty) return alert("Not enough stock.");
-      stock[product] -= qty;
-      document.getElementById('stock-' + product).textContent = stock[product];
-      alert(`Added ${qty} ${product} to your cart.`);
-    }
-
-    // Admin password protection
-    const adminInput = document.getElementById('admin-pass');
-    adminInput.addEventListener('change', () => {
-      if (adminInput.value === 'podplug22admin') {
-        document.getElementById('stock-editor').style.display = 'block';
-      } else {
-        alert('Incorrect password');
-      }
-    });
-
-    function updateStock(product) {
-      const newStock = parseInt(document.getElementById('edit-' + product).value);
-      if (!isNaN(newStock)) {
-        stock[product] = newStock;
-        document.getElementById('stock-' + product).textContent = stock[product];
-        alert(product + ' stock updated to ' + newStock);
-      }
-    }
-  </script>
+  <div class="content">
+    <h2>How It Works</h2>
+    <p>We sell trusted tech and designer items like AirPods and LV beanies at unbeatable prices. You place your order, and we ship fast from our UK-based stock.</p>
+    <p>Each product page will show how many items are in stock. When a purchase is made, the stock count goes down. As the website owner, you’ll be able to manually update stock numbers through your own admin editor page (coming soon).</p>
+  </div>
 
 </body>
 </html>
